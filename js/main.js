@@ -4,27 +4,39 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
   }
-
 let randomNumber = getRandomInt(1, 100);
 console.log(randomNumber);
 toFindNumber();
 
+function askQuestion () {
+    let result = confirm("Вы ввели неверное значение. Хотите продолжить или выйти?");
+    if (result == true) {
+        toFindNumber();
+    }
+    else if (result == false) {
+        alert("Игра закончена");
+    }
+}
+
 function toFindNumber() {
     let number = +prompt("Угадай число от 1 до 100");
-    console.log('Введено число ' + number);
-    if (number > randomNumber) {
+    if (number < 1 || number > 100) {
+        askQuestion();
+    }
+    else if (number > randomNumber){
         alert("Загаданное число меньше");
-        toFindNumber();
+        askQuestion();
     } 
-    else if (number < randomNumber && number != 0) {
+    else if (number < randomNumber) {
         alert("Загаданное число больше");
-        toFindNumber();
+        askQuestion();
     } 
     else if (number == randomNumber) {
-        alert("Поздравляю, Вы угадали!");
+        confirm("Поздравляю, Вы угадали!");
     }
-    else if (number == 0) {
-         alert("Игра окончена");
+    else if (parseInt) {
+        askQuestion();
     }
+
 };
 
