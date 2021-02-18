@@ -40,7 +40,7 @@ function toFindNumber() {
     else if (equal) {
         confirm("Поздравляю, Вы угадали!");
     }
-    return equal === true ? alert("вы угадали!") : toFindNumber();
+    return equal === true ? alert("спасибо что играли в меня") : toFindNumber();
 };
 
 toFindNumber();
